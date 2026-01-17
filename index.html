@@ -1,44 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Love ❤️</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love for You</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            color: #5d4037;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "❤️";
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+            top: -40px;
+            right: -40px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: #d81b60;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #880e4f;
+            margin-bottom: 20px;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .heart {
+            color: #e91e63;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .photo-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .photo-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 5px solid #f8bbd9;
+        }
+        
+        .photo-caption {
+            padding: 20px;
+            text-align: center;
+            font-style: italic;
+            color: #5d4037;
+            background-color: #fff;
+        }
+        
+        .love-message {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .love-message::before {
+            content: "💖";
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.05;
+            bottom: -30px;
+            left: -30px;
+        }
+        
+        .message-title {
+            color: #d81b60;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .message-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #5d4037;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .message-text p {
+            margin-bottom: 20px;
+        }
+        
+        .interactive {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .flowers-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .flower {
+            font-size: 3rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .flower:hover {
+            transform: scale(1.2) rotate(15deg);
+        }
+        
+        .flowers-message {
+            font-size: 1.5rem;
+            color: #d81b60;
+            text-align: center;
+            margin-top: 20px;
+            min-height: 40px;
+        }
+        
+        .generate-btn {
+            background: linear-gradient(to right, #e91e63, #f06292);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+            margin-top: 20px;
+        }
+        
+        .generate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #880e4f;
+            font-size: 1.1rem;
+        }
+        
+        /* Modal for full-size images */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #f06292;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .love-message, .interactive {
+                padding: 25px;
+            }
+            
+            .message-title {
+                font-size: 2rem;
+            }
+            
+            .message-text {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .photo-img {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Floating Hearts Container -->
-  <div class="hearts"></div>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1 class="love-text">I ❤️ You, [Her Name]</h1>
-    <img src="1.jpg" alt="My Love" class="hero-photo">
-    <p class="sub-text">Forever and Always 💕</p>
-  </header>
-
-  <!-- Photo Gallery / Slider -->
-  <section class="gallery">
-    <h2>Our Memories</h2>
-    <div class="slider">
-      <img src="2.jpg" class="slide active">
-      <img src="3.jpg" class="slide">
-      <img src="4.jpg" class="slide">
+    <div class="container">
+        <header>
+            <h1>My Beautiful <span class="heart">❤️</span> Love</h1>
+            <div class="subtitle">A gallery dedicated to the most amazing person in my life</div>
+            <p class="intro-text">Every moment with you is a treasure, every memory a precious gem. This website is a small token of my endless love and appreciation for you. You light up my world in ways words can't fully express.</p>
+        </header>
+        
+        <section class="gallery-container" id="gallery">
+            <!-- Photo cards will be generated by JavaScript -->
+        </section>
+        
+        <section class="love-message">
+            <h2 class="message-title">My Heart's Message to You</h2>
+            <div class="message-text">
+                <p>My dearest love, from the moment you came into my life, everything changed for the better. Your smile brightens my darkest days, your laughter is my favorite melody, and your love is the greatest gift I've ever received.</p>
+                <p>Looking at these photos reminds me of all the beautiful moments we've shared together. Each memory is etched in my heart forever. I cherish every laugh, every conversation, every quiet moment, and every adventure we've experienced.</p>
+                <p>No matter where life takes us, my love for you will only grow stronger. You are my today and all of my tomorrows. Thank you for being you, for loving me, and for making my life complete.</p>
+                <p>Forever yours, with all my heart.</p>
+            </div>
+        </section>
+        
+        <section class="interactive">
+            <h2 class="message-title">Send Her Virtual Flowers</h2>
+            <p>Click on the flowers below to create a special bouquet for her</p>
+            <div class="flowers-container">
+                <div class="flower" data-flower="🌹">🌹</div>
+                <div class="flower" data-flower="🌷">🌷</div>
+                <div class="flower" data-flower="🌸">🌸</div>
+                <div class="flower" data-flower="💐">💐</div>
+                <div class="flower" data-flower="🌺">🌺</div>
+                <div class="flower" data-flower="🌻">🌻</div>
+            </div>
+            <div class="flowers-message" id="flowers-message">Your bouquet will appear here...</div>
+            <button class="generate-btn" id="generate-message">Create Special Love Message</button>
+        </section>
+        
+        <footer>
+            <p>Made with <span class="heart">❤️</span> for the most wonderful woman in the world</p>
+            <p>Every day with you is a blessing I cherish</p>
+        </footer>
     </div>
-  </section>
+    
+    <!-- Modal for full-size images -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
-  <!-- Love Quotes Section -->
-  <section class="quotes">
-    <h2>Love Quotes</h2>
-    <p id="quote">You are my sunshine 💖</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>Made with ❤️ by [Your Name]</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script>
+        // Sample photo data - Replace these with your girlfriend's photos and captions
+        const photos = [
+            {
+                url: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                caption: "Your beautiful smile lights up my world"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                caption: "Every moment with you is magical"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                caption: "Your laughter is my favorite sound"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                caption: "You are the most beautiful person inside and out"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                caption: "My heart skips a beat every time I see you"
+            },
+            {
+                url: "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                caption: "Forever grateful to have you in my life"
+            }
+        ];
+        
+        // Love messages for the interactive section
+        const loveMessages = [
+            "You are the sunshine that brightens my day",
+            "My love for you grows stronger with each passing moment",
+            "You are the missing piece I never knew I needed",
+            "Every love story is beautiful, but ours is my favorite",
+            "I fall in love with you more every single day",
+            "You are my today and all of my tomorrows",
+            "In your eyes, I found my home",
+            "My heart is and always will be yours"
+        ];
+        
+        // Initialize the gallery
+        const galleryContainer = document.getElementById('gallery');
+        const flowersMessage = document.getElementById('flowers-message');
+        const generateMessageBtn = document.getElementById('generate-message');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Create photo cards
+        photos.forEach(photo => {
+            const photoCard = document.createElement('div');
+            photoCard.className = 'photo-card';
+            
+            photoCard.innerHTML = `
+                <img src="${photo.url}" alt="Beautiful photo" class="photo-img">
+                <div class="photo-caption">${photo.caption}</div>
+            `;
+            
+            // Add click event to show image in modal
+            photoCard.addEventListener('click', () => {
+                modalImage.src = photo.url;
+                modal.style.display = 'flex';
+            });
+            
+            galleryContainer.appendChild(photoCard);
+        });
+        
+        // Interactive flowers functionality
+        let flowerBouquet = [];
+        const flowers = document.querySelectorAll('.flower');
+        
+        flowers.forEach(flower => {
+            flower.addEventListener('click', () => {
+                const flowerType = flower.getAttribute('data-flower');
+                flowerBouquet.push(flowerType);
+                
+                // Update the bouquet display
+                flowersMessage.innerHTML = `Your bouquet: ${flowerBouquet.join(' ')}`;
+                
+                // Add a little animation
+                flower.style.transform = 'scale(1.3) rotate(20deg)';
+                setTimeout(() => {
+                    flower.style.transform = 'scale(1) rotate(0deg)';
+                }, 300);
+                
+                // If bouquet gets too long, clear it
+                if (flowerBouquet.length > 10) {
+                    setTimeout(() => {
+                        flowersMessage.innerHTML = "That's a beautiful bouquet! Creating a new one...";
+                        setTimeout(() => {
+                            flowerBouquet = [];
+                            flowersMessage.innerHTML = "Start a new bouquet by clicking flowers!";
+                        }, 1500);
+                    }, 500);
+                }
+            });
+        });
+        
+        // Generate random love message
+        generateMessageBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * loveMessages.length);
+            const randomMessage = loveMessages[randomIndex];
+            
+            flowersMessage.innerHTML = `💖 ${randomMessage} 💖`;
+            
+            // Add some visual feedback
+            generateMessageBtn.innerHTML = "Message Created!";
+            generateMessageBtn.style.background = "linear-gradient(to right, #4CAF50, #8BC34A)";
+            
+            setTimeout(() => {
+                generateMessageBtn.innerHTML = "Create Another Love Message";
+                generateMessageBtn.style.background = "linear-gradient(to right, #e91e63, #f06292)";
+            }, 2000);
+        });
+        
+        // Modal functionality
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Add floating hearts animation
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.opacity = Math.random() * 0.5 + 0.3;
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '9999';
+            document.body.appendChild(heart);
+            
+            // Animate the heart
+            const animation = heart.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: heart.style.opacity },
+                { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 5000,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+            });
+            
+            // Remove heart after animation completes
+            animation.onfinish = () => {
+                heart.remove();
+            };
+        }
+        
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 800);
+        
+        // Initial hearts
+        for (let i = 0; i < 10; i++) {
+            setTimeout(createFloatingHeart, i * 300);
+        }
+    </script>
 </body>
 </html>
