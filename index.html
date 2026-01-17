@@ -425,66 +425,14 @@
             50% { transform: scale(1.2); }
         }
         
-        /* Interactive Section */
-        .interactive-section {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 230, 242, 0.95));
-            padding: 60px 40px;
-            border-radius: 35px;
-            margin-bottom: 70px;
+        /* Romantic Kiss Button */
+        .kiss-section {
             text-align: center;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            margin-bottom: 70px;
+            padding: 0 20px;
         }
         
-        .flowers-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 50px 0;
-        }
-        
-        .flower {
-            font-size: 5rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: sway 4s ease-in-out infinite alternate;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
-        }
-        
-        @keyframes sway {
-            0% { transform: rotate(-8deg) translateY(0); }
-            100% { transform: rotate(8deg) translateY(-10px); }
-        }
-        
-        .flower:hover {
-            transform: scale(1.4) rotate(15deg);
-            filter: drop-shadow(0 10px 25px rgba(255, 64, 129, 0.4));
-        }
-        
-        .flowers-message {
-            font-size: 2rem;
-            color: var(--primary-pink);
-            min-height: 80px;
-            margin: 40px 0;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            border: 2px dashed var(--secondary-pink);
-            font-family: 'Dancing Script', cursive;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-        
-        .romantic-btn {
+        .kiss-btn {
             background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
             color: white;
             border: none;
@@ -498,9 +446,12 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
         }
         
-        .romantic-btn::before {
+        .kiss-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -511,65 +462,13 @@
             transition: left 0.7s;
         }
         
-        .romantic-btn:hover::before {
+        .kiss-btn:hover::before {
             left: 100%;
         }
         
-        .romantic-btn:hover {
+        .kiss-btn:hover {
             transform: translateY(-8px) scale(1.05);
             box-shadow: 0 25px 50px rgba(255, 64, 129, 0.4);
-        }
-        
-        /* Countdown */
-        .countdown {
-            background: rgba(255, 255, 255, 0.92);
-            padding: 50px 40px;
-            border-radius: 30px;
-            margin-bottom: 70px;
-            text-align: center;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .countdown-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: var(--primary-pink);
-            margin-bottom: 40px;
-        }
-        
-        .countdown-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 25px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .countdown-item {
-            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
-            color: white;
-            padding: 35px 20px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.25);
-            transition: transform 0.3s ease;
-        }
-        
-        .countdown-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .countdown-number {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .countdown-label {
-            font-size: 1.4rem;
-            font-weight: 500;
         }
         
         /* Footer */
@@ -690,8 +589,6 @@
             
             .love-meter,
             .love-letter,
-            .interactive-section,
-            .countdown,
             footer {
                 padding: 40px 25px;
                 margin-bottom: 50px;
@@ -723,41 +620,9 @@
                 font-size: 1.2rem;
             }
             
-            .flowers-container {
-                gap: 20px;
-                margin: 40px 0;
-            }
-            
-            .flower {
-                font-size: 4rem;
-            }
-            
-            .flowers-message {
-                font-size: 1.6rem;
-                padding: 20px;
-            }
-            
-            .romantic-btn {
+            .kiss-btn {
                 padding: 20px 45px;
                 font-size: 1.3rem;
-            }
-            
-            .btn-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .countdown-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .countdown-item {
-                padding: 30px 15px;
-            }
-            
-            .countdown-number {
-                font-size: 3.5rem;
             }
             
             .signature {
@@ -796,30 +661,11 @@
                 height: 300px;
             }
             
-            .countdown-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .countdown-item {
-                padding: 25px 15px;
-            }
-            
-            .countdown-number {
-                font-size: 3rem;
-            }
-            
-            .flower {
-                font-size: 3.5rem;
-            }
-            
-            .flowers-message {
-                font-size: 1.4rem;
-            }
-            
-            .romantic-btn {
+            .kiss-btn {
                 width: 100%;
                 max-width: 300px;
+                padding: 18px 30px;
+                font-size: 1.2rem;
             }
             
             .letter-content p {
@@ -835,25 +681,16 @@
                 right: 30px;
                 font-size: 50px;
             }
+            
+            .signature {
+                font-size: 2.5rem;
+            }
         }
         
         /* Tablet specific optimizations */
         @media (min-width: 769px) and (max-width: 1024px) {
             .gallery-container {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .countdown-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .btn-container {
-                flex-wrap: nowrap;
-            }
-            
-            .romantic-btn {
-                flex: 1;
-                min-width: 200px;
             }
         }
         
@@ -867,27 +704,11 @@
                 transform: scale(0.98);
             }
             
-            .flower:hover {
+            .kiss-btn:hover {
                 transform: none;
             }
             
-            .flower:active {
-                transform: scale(1.3) rotate(15deg);
-            }
-            
-            .romantic-btn:hover {
-                transform: none;
-            }
-            
-            .romantic-btn:active {
-                transform: scale(0.95);
-            }
-            
-            .countdown-item:hover {
-                transform: none;
-            }
-            
-            .countdown-item:active {
+            .kiss-btn:active {
                 transform: scale(0.95);
             }
         }
@@ -901,10 +722,6 @@
             .gallery-container {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
-            .countdown-container {
-                grid-template-columns: repeat(4, 1fr);
-            }
         }
         
         /* Dark mode support */
@@ -917,8 +734,6 @@
             header,
             .love-meter,
             .love-letter,
-            .interactive-section,
-            .countdown,
             footer {
                 background: rgba(30, 30, 46, 0.9);
                 color: #e6e6e6;
@@ -932,39 +747,6 @@
             .photo-caption {
                 background: #2a2a3e;
                 color: #e6e6e6;
-            }
-        }
-        
-        /* Print styles */
-        @media print {
-            .music-player,
-            .floating-hearts,
-            .romantic-btn,
-            .flower,
-            .close-modal {
-                display: none !important;
-            }
-            
-            body {
-                background: white !important;
-                color: black !important;
-            }
-            
-            .container {
-                max-width: 100%;
-                padding: 10px;
-            }
-            
-            header,
-            .love-meter,
-            .love-letter,
-            .interactive-section,
-            .countdown,
-            footer {
-                box-shadow: none;
-                border: 1px solid #ccc;
-                background: white;
-                color: black;
             }
         }
     </style>
@@ -982,7 +764,7 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1 class="main-title">imu My Beautiful Love 🌹</h1>
+            <h1 class="main-title">For My Beautiful Love 🌹</h1>
             <div class="subtitle">Every Moment With You Is Pure Magic ✨</div>
             <p class="intro-text">
                 My dearest love, this website is a small reflection of the immense love I carry for you in my heart. 
@@ -1025,8 +807,13 @@
             </div>
         </section>
         
-        <!-- Countdown -->
-      
+        <!-- Kiss Button -->
+        <section class="kiss-section">
+            <button class="kiss-btn" id="kiss-btn">
+                <i class="fas fa-kiss-wink-heart"></i>
+                Send Virtual Kiss
+            </button>
+        </section>
         
         <!-- Footer -->
         <footer>
@@ -1084,10 +871,7 @@
             }
         ];
         
-        // 2. Replace with your special date (when you met/anniversary)
-        const specialDate = new Date("2023-06-15"); // Format: YYYY-MM-DD
-        
-        // 3. Love messages
+        // 2. Love messages (for future use if needed)
         const loveMessages = [
             "You are my sunshine on cloudy days ☀️",
             "My love for you grows stronger every moment 🌱",
@@ -1099,7 +883,7 @@
             "My heart whispers your name with every beat 💖"
         ];
         
-        // 4. Kiss messages
+        // 3. Kiss messages
         const kissMessages = [
             "💋 Sending you a thousand kisses, my love!",
             "💋 A gentle kiss for your beautiful soul!",
@@ -1110,8 +894,6 @@
         
         // DOM Elements
         const galleryContainer = document.getElementById('gallery');
-        const flowersMessage = document.getElementById('flowers-message');
-        const loveMessageBtn = document.getElementById('love-message-btn');
         const kissBtn = document.getElementById('kiss-btn');
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
@@ -1119,7 +901,6 @@
         const musicPlayer = document.getElementById('musicPlayer');
         const bgMusic = document.getElementById('bgMusic');
         const floatingHearts = document.getElementById('floatingHearts');
-        const countdownContainer = document.getElementById('countdown');
         
         // Initialize floating hearts
         function createFloatingHearts() {
@@ -1187,112 +968,49 @@
             });
         }
         
-        // Initialize countdown
-        function initializeCountdown() {
-            const now = new Date();
-            const diffTime = Math.abs(now - specialDate);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
-            const years = Math.floor(diffDays / 365);
-            const months = Math.floor((diffDays % 365) / 30);
-            const weeks = Math.floor((diffDays % 30) / 7);
-            const days = diffDays % 7;
-            
-            countdownContainer.innerHTML = `
-                <div class="countdown-item" tabindex="0">
-                    <div class="countdown-number">${years}</div>
-                    <div class="countdown-label">Years</div>
-                </div>
-                <div class="countdown-item" tabindex="0">
-                    <div class="countdown-number">${months}</div>
-                    <div class="countdown-label">Months</div>
-                </div>
-                <div class="countdown-item" tabindex="0">
-                    <div class="countdown-number">${weeks}</div>
-                    <div class="countdown-label">Weeks</div>
-                </div>
-                <div class="countdown-item" tabindex="0">
-                    <div class="countdown-number">${days}</div>
-                    <div class="countdown-label">Days</div>
-                </div>
-            `;
-        }
-        
-        // Interactive flowers functionality
-        let flowerBouquet = [];
-        const flowers = document.querySelectorAll('.flower');
-        
-        flowers.forEach(flower => {
-            flower.setAttribute('tabindex', '0');
-            flower.setAttribute('role', 'button');
-            flower.setAttribute('aria-label', `Add ${flower.getAttribute('data-flower')} to bouquet`);
-            
-            flower.addEventListener('click', handleFlowerClick);
-            flower.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    handleFlowerClick.call(flower);
-                }
-            });
-        });
-        
-        function handleFlowerClick() {
-            const flowerType = this.getAttribute('data-flower');
-            flowerBouquet.push(flowerType);
-            
-            // Update bouquet display
-            if (flowerBouquet.length <= 12) {
-                flowersMessage.innerHTML = `Your bouquet: ${flowerBouquet.join(' ')}`;
-            } else {
-                flowersMessage.innerHTML = "💖 Your bouquet overflows with love! 💖";
-                setTimeout(() => {
-                    flowerBouquet = [];
-                    flowersMessage.innerHTML = "Tap flowers to create a new bouquet 💐";
-                }, 2500);
-            }
-            
-            // Animation feedback
-            this.style.transform = 'scale(1.4) rotate(15deg)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 400);
-        }
-        
-        // Love message button
-        loveMessageBtn.addEventListener('click', () => {
-            const randomIndex = Math.floor(Math.random() * loveMessages.length);
-            const randomMessage = loveMessages[randomIndex];
-            
-            flowersMessage.innerHTML = `💌 ${randomMessage}`;
-            flowersMessage.style.backgroundColor = 'rgba(255, 235, 245, 0.9)';
-            
-            // Button feedback
-            loveMessageBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> Message Sent!';
-            loveMessageBtn.style.background = 'linear-gradient(135deg, #4CAF50, #8BC34A)';
-            
-            setTimeout(() => {
-                loveMessageBtn.innerHTML = '<i class="fas fa-heart" style="margin-right: 10px;"></i> Send Love Message';
-                loveMessageBtn.style.background = 'linear-gradient(135deg, var(--primary-pink), var(--secondary-pink))';
-            }, 2500);
-            
-            createFloatingHeartsEffect();
-        });
-        
-        // Kiss button
+        // Kiss button functionality
         kissBtn.addEventListener('click', () => {
             const randomIndex = Math.floor(Math.random() * kissMessages.length);
             const randomMessage = kissMessages[randomIndex];
             
-            flowersMessage.innerHTML = randomMessage;
-            flowersMessage.style.backgroundColor = 'rgba(255, 243, 224, 0.9)';
+            // Create a notification-like message
+            const notification = document.createElement('div');
+            notification.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 20px 40px;
+                    border-radius: 50px;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                    z-index: 9999;
+                    font-size: 1.3rem;
+                    color: var(--primary-pink);
+                    border: 2px solid var(--light-pink);
+                    backdrop-filter: blur(10px);
+                    animation: fadeInOut 3s ease-in-out;
+                ">
+                    ${randomMessage}
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
             
             // Button feedback
-            kissBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> Kiss Sent!';
+            kissBtn.innerHTML = '<i class="fas fa-check"></i> Kiss Sent!';
             kissBtn.style.background = 'linear-gradient(135deg, #FF5722, #FF8A65)';
             
             setTimeout(() => {
-                kissBtn.innerHTML = '<i class="fas fa-kiss-wink-heart" style="margin-right: 10px;"></i> Send Virtual Kiss';
-                kissBtn.style.background = 'linear-gradient(135deg, #ff9800, #ffb74d)';
+                kissBtn.innerHTML = '<i class="fas fa-kiss-wink-heart"></i> Send Virtual Kiss';
+                kissBtn.style.background = 'linear-gradient(135deg, var(--primary-pink), var(--secondary-pink))';
             }, 2500);
+            
+            // Remove notification after animation
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
             
             // Create floating kiss animations
             for (let i = 0; i < 8; i++) {
@@ -1322,34 +1040,6 @@
             });
             
             animation.onfinish = () => kiss.remove();
-        }
-        
-        // Create floating hearts effect
-        function createFloatingHeartsEffect() {
-            for (let i = 0; i < 10; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.innerHTML = '❤️';
-                    heart.style.position = 'fixed';
-                    heart.style.fontSize = `${Math.random() * 25 + 15}px`;
-                    heart.style.left = `${Math.random() * 100}%`;
-                    heart.style.top = '100vh';
-                    heart.style.opacity = Math.random() * 0.7 + 0.3;
-                    heart.style.pointerEvents = 'none';
-                    heart.style.zIndex = '9998';
-                    document.body.appendChild(heart);
-                    
-                    const animation = heart.animate([
-                        { transform: 'translateY(0) rotate(0deg)', opacity: heart.style.opacity },
-                        { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-                    ], {
-                        duration: Math.random() * 4000 + 6000,
-                        easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
-                    });
-                    
-                    animation.onfinish = () => heart.remove();
-                }, i * 200);
-            }
         }
         
         // Music functionality
@@ -1427,13 +1117,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             createFloatingHearts();
             initializeGallery();
-            initializeCountdown();
             initializeMusic();
             
             // Create periodic floating hearts
             setInterval(() => {
-                createFloatingHeartsEffect();
-            }, 10000);
+                createFloatingKiss();
+            }, 8000);
         });
         
         // Handle page visibility change
@@ -1444,24 +1133,6 @@
                 bgMusic.play();
             }
         });
-        
-        // Handle window resize for responsive adjustments
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                // Adjust font sizes for very small screens
-                if (window.innerWidth < 400) {
-                    document.querySelectorAll('.section-title').forEach(title => {
-                        title.style.fontSize = '2.2rem';
-                    });
-                }
-            }, 250);
-        });
     </script>
 </body>
 </html>
-
-
-
-
