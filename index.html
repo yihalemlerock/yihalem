@@ -694,6 +694,16 @@
             }
         }
         
+        @media (max-width: 768px) {
+    .video-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .video-card {
+        height: 250px;
+    }
+}
         /* Touch device optimizations */
         @media (hover: none) and (pointer: coarse) {
             .photo-card:hover {
@@ -748,6 +758,49 @@
                 background: #2a2a3e;
                 color: #e6e6e6;
             }
+            /* Video Gallery Styles - ADD HERE */
+.video-section {
+    margin-bottom: 70px;
+}
+
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 35px;
+    margin-bottom: 40px;
+}
+
+.video-card {
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: pointer;
+    height: 300px;
+}
+
+.video-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+}
+
+.video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.video-caption {
+    padding: 20px;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--dark-purple);
+    background: var(--white);
+}
         }
     </style>
 </head>
@@ -793,6 +846,11 @@
             </div>
         </section>
         
+        <section class="video-section">
+    <h2 class="section-title">Our Special Moments</h2>
+    <div class="video-container" id="videoGallery">
+        <!-- Videos will be added by JavaScript -->
+    </div>
         <!-- Love Letter -->
         <section class="love-letter">
             <h2 class="section-title">My Heart's Letter to You</h2>
@@ -811,7 +869,7 @@
         <section class="kiss-section">
             <button class="kiss-btn" id="kiss-btn">
                 <i class="fas fa-kiss-wink-heart"></i>
-                Send Virtual Kiss
+                
             </button>
         </section>
         
@@ -854,15 +912,15 @@
                 caption: "Your smile brightens even my darkest days"
             },
             {
-                url: "photo3.jpg", // Change to your photo filename
+                url: "3.jpg", // Change to your photo filename
                 caption: "Every memory with you is precious gold"
             },
             {
-                url: "photo4.jpg", // Change to your photo filename
+                url: "4.jpg", // Change to your photo filename
                 caption: "My heart found its home in your eyes"
             },
             {
-                url: "photo5.jpg", // Change to your photo filename
+                url: "5.jpg", // Change to your photo filename
                 caption: "Together is my favorite place to be"
             },
             {
@@ -870,7 +928,48 @@
                 caption: "You are the best thing that ever happened to me"
             }
         ];
+        // 4. Add your video URLs
+const yourVideos = [
+    {
+        url: "video1.mp4", // Change to your video filename
+        caption: "Our beautiful moment together",
+        poster: "video-thumb1.jpg" // Optional thumbnail
+    },
+    {
+        url: "video2.mp4", // Change to your video filename
+        caption: "Special memory with you",
+        poster: "video-thumb2.jpg" // Optional thumbnail
+    }
+];
+
+// DOM Elements - Add this line after galleryContainer
+const videoContainer = document.getElementById('videoGallery');
+
+// Function to initialize videos - Add after initializeGallery()
+function initializeVideos() {
+    yourVideos.forEach((video, index) => {
+        const videoCard = document.createElement('div');
+        videoCard.className = 'video-card';
+        videoCard.tabIndex = 0;
         
+        videoCard.innerHTML = `
+            <video class="video-player" 
+                   ${video.poster ? `poster="${video.poster}"` : ''}
+                   controls 
+                   preload="metadata"
+                   playsinline>
+                <source src="${video.url}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-caption">${video.caption}</div>
+        `;
+        
+        videoContainer.appendChild(videoCard);
+    });
+}
+
+// Then in DOMContentLoaded, add:
+initializeVideos();
         // 2. Love messages (for future use if needed)
         const loveMessages = [
             "You are my sunshine on cloudy days ☀️",
@@ -884,13 +983,6 @@
         ];
         
         // 3. Kiss messages
-        const kissMessages = [
-            "💋 Sending you a thousand kisses, my love!",
-            "💋 A gentle kiss for your beautiful soul!",
-            "💋 Mwah! That's a kiss straight from my heart!",
-            "💋 Blowing kisses your way, darling!",
-            "💋 Virtual kiss delivered with all my love!"
-        ];
         
         // DOM Elements
         const galleryContainer = document.getElementById('gallery');
@@ -1136,4 +1228,3 @@
     </script>
 </body>
 </html>
-
