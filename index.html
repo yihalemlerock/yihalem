@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="am">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ለውዴ እና ለልጄ - የፍቅር ድር ገጽ 💕</title>
+    <title>For My Beautiful Love 💖</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,127 +13,224 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary-pink: #ff4081;
+            --secondary-pink: #ff79b0;
+            --light-pink: #ffe6f2;
+            --dark-purple: #8e24aa;
+            --light-purple: #e1bee7;
+            --gold: #ffd700;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
         body {
-            font-family: 'Noto Sans Ethiopic', sans-serif;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffd6e7, #c2e9fb);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientAnimation 15s ease infinite;
             color: #5a3d5c;
             min-height: 100vh;
             overflow-x: hidden;
-            line-height: 1.8;
-            direction: ltr;
+            line-height: 1.7;
         }
         
-        @keyframes gradientBG {
+        @keyframes gradientAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
-        }
-        
-        /* Header with romantic animation */
-        header {
-            text-align: center;
-            padding: 50px 20px;
             position: relative;
-            margin-bottom: 40px;
         }
         
-        .hearts-bg {
-            position: absolute;
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
         }
         
-        .heart-bg {
+        .floating-heart {
             position: absolute;
-            color: rgba(255, 105, 180, 0.1);
-            font-size: 30px;
-            animation: float 20s linear infinite;
+            color: rgba(255, 64, 129, 0.15);
+            font-size: 24px;
+            animation: floatUp 20s linear infinite;
         }
         
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .music-player:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .music-icon {
+            font-size: 24px;
+            color: var(--primary-pink);
+            animation: pulseMusic 2s infinite;
+        }
+        
+        @keyframes pulseMusic {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .music-text {
+            font-size: 14px;
+            color: var(--dark-purple);
+            font-weight: 500;
+        }
+        
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 60px 30px 40px;
+            position: relative;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
         
         .main-title {
-            font-family: 'Dancing Script', 'Noto Sans Ethiopic', cursive;
-            font-size: 4.2rem;
-            color: #ff4081;
+            font-family: 'Great Vibes', 'Dancing Script', cursive;
+            font-size: 5.5rem;
+            background: linear-gradient(45deg, var(--primary-pink), var(--dark-purple), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             margin-bottom: 15px;
-            text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.7);
-            animation: pulse 2s infinite;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+            animation: titleGlow 3s ease-in-out infinite alternate;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(255, 64, 129, 0.3)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 64, 129, 0.6)); }
         }
         
         .subtitle {
-            font-size: 2rem;
-            color: #8e24aa;
+            font-size: 1.8rem;
+            color: var(--dark-purple);
             margin-bottom: 25px;
-            font-weight: 700;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
         
         .intro-text {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto 30px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-left: 8px solid #ff4081;
-            text-align: justify;
+            color: #666;
+            line-height: 1.8;
         }
         
         /* Love Meter */
         .love-meter {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 50px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .love-meter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--secondary-pink), var(--gold));
         }
         
         .meter-title {
-            color: #ff4081;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-family: 'Dancing Script', 'Noto Sans Ethiopic', cursive;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--primary-pink);
+            margin-bottom: 30px;
         }
         
         .meter-container {
             width: 100%;
-            height: 40px;
-            background: #ffe6f2;
-            border-radius: 20px;
+            height: 50px;
+            background: var(--light-pink);
+            border-radius: 25px;
             overflow: hidden;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             position: relative;
+            border: 3px solid rgba(255, 64, 129, 0.2);
         }
         
         .meter-fill {
             height: 100%;
             width: 100%;
-            background: linear-gradient(90deg, #ff4081, #ff79b0);
-            border-radius: 20px;
-            animation: fillLove 2s ease-out forwards;
+            background: linear-gradient(90deg, var(--primary-pink), var(--secondary-pink), var(--gold));
+            border-radius: 25px;
+            animation: fillLove 3s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .meter-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            animation: shine 3s infinite;
         }
         
         @keyframes fillLove {
@@ -141,61 +238,108 @@
             100% { width: 100%; }
         }
         
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
         .meter-text {
             font-size: 1.8rem;
-            color: #8e24aa;
-            font-weight: bold;
+            color: var(--dark-purple);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.2s infinite;
+            font-size: 2rem;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
         }
         
         /* Photo Gallery */
         .gallery-section {
-            margin-bottom: 50px;
+            margin-bottom: 70px;
         }
         
         .section-title {
-            font-family: 'Dancing Script', 'Noto Sans Ethiopic', cursive;
-            font-size: 3.5rem;
-            color: #ff4081;
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--primary-pink);
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 40px;
         }
         
-        .section-title:after {
-            content: "❤️";
+        .section-title::before,
+        .section-title::after {
+            content: '❤️';
             position: absolute;
-            font-size: 2rem;
-            top: -15px;
-            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            animation: floatSide 3s ease-in-out infinite alternate;
+        }
+        
+        .section-title::before {
+            left: 0;
+        }
+        
+        .section-title::after {
+            right: 0;
+        }
+        
+        @keyframes floatSide {
+            0% { transform: translateY(-50%) translateX(0); }
+            100% { transform: translateY(-50%) translateX(10px); }
         }
         
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-bottom: 40px;
         }
         
         .photo-card {
-            background: white;
-            border-radius: 20px;
+            background: var(--white);
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             cursor: pointer;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
         }
         
         .photo-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+        }
+        
+        .photo-img-container {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
         }
         
         .photo-img {
             width: 100%;
-            height: 280px;
+            height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.8s ease;
         }
         
         .photo-card:hover .photo-img {
@@ -207,13 +351,11 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
             color: white;
-            padding: 30px 20px 20px;
+            padding: 40px 25px 25px;
             transform: translateY(100%);
-            transition: transform 0.4s;
-            font-size: 1.1rem;
-            text-align: center;
+            transition: transform 0.5s ease;
         }
         
         .photo-card:hover .photo-overlay {
@@ -221,195 +363,249 @@
         }
         
         .photo-caption {
-            font-size: 1.3rem;
-            font-style: italic;
+            padding: 25px;
+            background: var(--white);
             text-align: center;
-            padding: 20px;
-            background: white;
-            color: #5a3d5c;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--dark-purple);
+            border-top: 3px solid var(--light-pink);
         }
         
         /* Love Letter */
         .love-letter {
             background: rgba(255, 255, 255, 0.95);
-            padding: 50px;
-            border-radius: 25px;
-            margin-bottom: 50px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 60px 50px;
+            border-radius: 35px;
+            margin-bottom: 70px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
-            text-align: justify;
         }
         
-        .love-letter:before {
-            content: "";
+        .love-letter::before {
+            content: '💌';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: linear-gradient(90deg, #ff4081, #ff79b0);
+            top: 30px;
+            right: 30px;
+            font-size: 8rem;
+            opacity: 0.08;
+            transform: rotate(15deg);
         }
         
         .letter-content {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             line-height: 1.9;
             color: #5a3d5c;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         .letter-content p {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             position: relative;
             padding-left: 40px;
         }
         
-        .letter-content p:before {
-            content: "💖";
+        .letter-content p::before {
+            content: '❤️';
             position: absolute;
             left: 0;
             top: 5px;
             font-size: 1.5rem;
+            animation: pulseSmall 2s infinite;
+        }
+        
+        @keyframes pulseSmall {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
         
         /* Interactive Section */
         .interactive-section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 50px 30px;
-            border-radius: 25px;
-            margin-bottom: 50px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 230, 242, 0.95));
+            padding: 60px 40px;
+            border-radius: 35px;
+            margin-bottom: 70px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
         
         .flowers-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
-            margin: 40px 0;
+            gap: 30px;
+            margin: 50px 0;
         }
         
         .flower {
-            font-size: 4rem;
+            font-size: 5rem;
             cursor: pointer;
-            transition: all 0.3s;
-            animation: sway 3s infinite alternate;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: sway 4s ease-in-out infinite alternate;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
         }
         
         @keyframes sway {
-            0% { transform: rotate(-10deg); }
-            100% { transform: rotate(10deg); }
+            0% { transform: rotate(-8deg) translateY(0); }
+            100% { transform: rotate(8deg) translateY(-10px); }
         }
         
         .flower:hover {
-            transform: scale(1.3) rotate(15deg);
-            filter: drop-shadow(0 5px 10px rgba(255, 64, 129, 0.5));
+            transform: scale(1.4) rotate(15deg);
+            filter: drop-shadow(0 10px 25px rgba(255, 64, 129, 0.4));
         }
         
         .flowers-message {
-            font-size: 1.9rem;
-            color: #ff4081;
-            min-height: 60px;
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(255, 228, 242, 0.5);
-            border-radius: 15px;
-            border: 2px dashed #ff79b0;
-            font-weight: bold;
+            font-size: 2rem;
+            color: var(--primary-pink);
+            min-height: 80px;
+            margin: 40px 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            border: 2px dashed var(--secondary-pink);
+            font-family: 'Dancing Script', cursive;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
         
         .romantic-btn {
-            background: linear-gradient(45deg, #ff4081, #ff79b0);
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
             color: white;
             border: none;
-            padding: 20px 50px;
-            font-size: 1.6rem;
+            padding: 22px 55px;
+            font-size: 1.5rem;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 25px rgba(255, 64, 129, 0.4);
-            margin-top: 20px;
-            font-family: 'Noto Sans Ethiopic', sans-serif;
-            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.3);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .romantic-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+        
+        .romantic-btn:hover::before {
+            left: 100%;
         }
         
         .romantic-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.6);
-            background: linear-gradient(45deg, #ff79b0, #ff4081);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 64, 129, 0.4);
         }
         
         /* Countdown */
         .countdown {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 50px 40px;
+            border-radius: 30px;
+            margin-bottom: 70px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
         
         .countdown-title {
-            color: #ff4081;
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            font-family: 'Dancing Script', 'Noto Sans Ethiopic', cursive;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 40px;
         }
         
         .countdown-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .countdown-item {
-            background: linear-gradient(45deg, #ff4081, #ff79b0);
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
             color: white;
-            padding: 25px 15px;
-            border-radius: 15px;
-            min-width: 130px;
-            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.3);
+            padding: 35px 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.25);
+            transition: transform 0.3s ease;
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-10px);
         }
         
         .countdown-number {
-            font-size: 3.2rem;
+            font-size: 4rem;
             font-weight: bold;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .countdown-label {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            font-weight: 500;
         }
         
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            color: #8e24aa;
+            padding: 60px 30px;
+            color: var(--dark-purple);
             font-size: 1.3rem;
             position: relative;
-            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 30px;
+            margin-top: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
         
-        footer:before {
-            content: "";
+        footer::before {
+            content: '';
             position: absolute;
             top: 0;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ff4081, transparent);
+            left: 20%;
+            right: 20%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-pink), transparent);
         }
         
         .signature {
-            font-family: 'Dancing Script', 'Noto Sans Ethiopic', cursive;
-            font-size: 3rem;
-            color: #ff4081;
-            margin-top: 20px;
-            margin-bottom: 15px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, var(--primary-pink), var(--dark-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 30px 0;
+            display: block;
         }
         
         /* Modal */
@@ -421,109 +617,196 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
+            z-index: 2000;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
         
         .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 15px;
-            box-shadow: 0 0 50px rgba(255, 64, 129, 0.5);
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 20px;
+            box-shadow: 0 0 60px rgba(255, 64, 129, 0.5);
+            animation: modalAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes modalAppear {
+            0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0); opacity: 1; }
         }
         
         .close-modal {
             position: absolute;
-            top: 30px;
-            right: 40px;
+            top: 40px;
+            right: 50px;
             color: white;
-            font-size: 50px;
+            font-size: 60px;
             cursor: pointer;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            z-index: 2001;
         }
         
         .close-modal:hover {
-            color: #ff4081;
+            color: var(--primary-pink);
+            transform: scale(1.2) rotate(90deg);
         }
         
-        /* Music toggle */
-        .music-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
-        }
-        
-        .music-toggle:hover {
-            transform: scale(1.1);
-            background: white;
-        }
-        
-        .music-icon {
-            font-size: 1.8rem;
-            color: #ff4081;
-        }
-        
-        .music-toggle.playing .music-icon {
-            animation: musicNote 1s infinite;
-        }
-        
-        @keyframes musicNote {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
+        /* Mobile Responsive Optimizations */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 95%;
+                padding: 15px;
+            }
+            
             .main-title {
-                font-size: 3rem;
-            }
-            
-            .subtitle {
-                font-size: 1.6rem;
-            }
-            
-            .intro-text {
-                font-size: 1.2rem;
-                padding: 20px;
-            }
-            
-            .section-title {
-                font-size: 2.8rem;
+                font-size: 4.5rem;
             }
             
             .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3.5rem;
             }
             
-            .photo-img {
-                height: 220px;
+            .subtitle {
+                font-size: 1.5rem;
             }
             
-            .love-letter {
-                padding: 30px 20px;
+            .intro-text {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+                margin-bottom: 40px;
+            }
+            
+            .love-meter,
+            .love-letter,
+            .interactive-section,
+            .countdown,
+            footer {
+                padding: 40px 25px;
+                margin-bottom: 50px;
+                border-radius: 25px;
+            }
+            
+            .meter-title {
+                font-size: 2.5rem;
+            }
+            
+            .meter-container {
+                height: 40px;
+            }
+            
+            .meter-text {
+                font-size: 1.5rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .photo-card {
+                height: 350px;
             }
             
             .letter-content {
+                font-size: 1.2rem;
+            }
+            
+            .flowers-container {
+                gap: 20px;
+                margin: 40px 0;
+            }
+            
+            .flower {
+                font-size: 4rem;
+            }
+            
+            .flowers-message {
+                font-size: 1.6rem;
+                padding: 20px;
+            }
+            
+            .romantic-btn {
+                padding: 20px 45px;
                 font-size: 1.3rem;
             }
             
-            .interactive-section {
-                padding: 30px 20px;
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .countdown-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .countdown-item {
+                padding: 30px 15px;
+            }
+            
+            .countdown-number {
+                font-size: 3.5rem;
+            }
+            
+            .signature {
+                font-size: 2.8rem;
+            }
+            
+            .music-player {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+            }
+            
+            .music-text {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            header {
+                padding: 40px 20px 30px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .photo-card {
+                height: 300px;
+            }
+            
+            .countdown-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .countdown-item {
+                padding: 25px 15px;
+            }
+            
+            .countdown-number {
+                font-size: 3rem;
             }
             
             .flower {
@@ -531,150 +814,198 @@
             }
             
             .flowers-message {
-                font-size: 1.5rem;
-                padding: 15px;
+                font-size: 1.4rem;
             }
             
             .romantic-btn {
-                padding: 18px 40px;
-                font-size: 1.4rem;
-                margin: 10px 5px;
-            }
-            
-            .countdown-item {
-                min-width: 110px;
-                padding: 20px 10px;
-            }
-            
-            .countdown-number {
-                font-size: 2.8rem;
-            }
-            
-            .countdown-label {
-                font-size: 1.2rem;
-            }
-            
-            .meter-title {
-                font-size: 2.2rem;
-            }
-            
-            .meter-text {
-                font-size: 1.6rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-            
-            .gallery-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .photo-img {
-                height: 250px;
-            }
-            
-            .countdown-container {
-                gap: 10px;
-            }
-            
-            .countdown-item {
-                min-width: 90px;
-                padding: 18px 8px;
-            }
-            
-            .countdown-number {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2.3rem;
+                width: 100%;
+                max-width: 300px;
             }
             
             .letter-content p {
                 padding-left: 30px;
             }
+            
+            .letter-content p::before {
+                font-size: 1.3rem;
+            }
+            
+            .close-modal {
+                top: 30px;
+                right: 30px;
+                font-size: 50px;
+            }
         }
         
-        /* Touch-friendly for mobile */
-        .touch-optimized {
-            -webkit-tap-highlight-color: transparent;
+        /* Tablet specific optimizations */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .countdown-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .btn-container {
+                flex-wrap: nowrap;
+            }
+            
+            .romantic-btn {
+                flex: 1;
+                min-width: 200px;
+            }
         }
         
-        .touch-optimized:active {
-            opacity: 0.8;
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .photo-card:hover {
+                transform: none;
+            }
+            
+            .photo-card:active {
+                transform: scale(0.98);
+            }
+            
+            .flower:hover {
+                transform: none;
+            }
+            
+            .flower:active {
+                transform: scale(1.3) rotate(15deg);
+            }
+            
+            .romantic-btn:hover {
+                transform: none;
+            }
+            
+            .romantic-btn:active {
+                transform: scale(0.95);
+            }
+            
+            .countdown-item:hover {
+                transform: none;
+            }
+            
+            .countdown-item:active {
+                transform: scale(0.95);
+            }
         }
         
-        /* Ethiopian flag colors accent */
-        .ethiopian-flag {
-            display: inline-block;
-            height: 10px;
-            width: 100px;
-            background: linear-gradient(to right, #078930 33%, #fcdd09 33%, #fcdd09 66%, #da121a 66%);
-            margin: 0 10px;
-            vertical-align: middle;
-            border-radius: 5px;
+        /* High-resolution screens */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1300px;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .countdown-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
         
-        /* Amharic text specific styles */
-        .amharic-text {
-            font-family: 'Noto Sans Ethiopic', sans-serif;
-            line-height: 1.8;
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+                color: #e6e6e6;
+            }
+            
+            header,
+            .love-meter,
+            .love-letter,
+            .interactive-section,
+            .countdown,
+            footer {
+                background: rgba(30, 30, 46, 0.9);
+                color: #e6e6e6;
+            }
+            
+            .intro-text,
+            .letter-content {
+                color: #cccccc;
+            }
+            
+            .photo-caption {
+                background: #2a2a3e;
+                color: #e6e6e6;
+            }
         }
         
-        /* Special heart for Amharic version */
-        .amharic-heart {
-            color: #ff4081;
-            animation: heartbeat 1.5s infinite;
-            display: inline-block;
-        }
-        
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+        /* Print styles */
+        @media print {
+            .music-player,
+            .floating-hearts,
+            .romantic-btn,
+            .flower,
+            .close-modal {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+            
+            header,
+            .love-meter,
+            .love-letter,
+            .interactive-section,
+            .countdown,
+            footer {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                background: white;
+                color: black;
+            }
         }
     </style>
 </head>
-<body class="touch-optimized amharic-text">
-    <!-- Music Toggle -->
-    <div class="music-toggle" id="musicToggle">
-        <div class="music-icon">🎵</div>
-    </div>
+<body>
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
     
-    <!-- Floating Hearts Background -->
-    <div class="hearts-bg" id="heartsBg"></div>
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-icon">🎵</div>
+        <div class="music-text">Romantic Music Playing</div>
+    </div>
     
     <div class="container">
         <!-- Header -->
         <header>
-            <h1 class="main-title">ለውዴ እና ለልጄ <span class="amharic-heart">💕</span></h1>
-            <div class="subtitle">እያንዳንዱ ቅጽበት ከአንቺ ጋር የማላረፍ ስጦታ ነው</div>
+            <h1 class="main-title">For My Beautiful Love 🌹</h1>
+            <div class="subtitle">Every Moment With You Is Pure Magic ✨</div>
             <p class="intro-text">
-                ውዴ ሆይ፣ ይህ ድር ገጽ ለአንቺ ያለኝን የማያልቅ ፍቅር የሚያሳይ ትንሽ ምስጢር ነው። 
-                እያንዳንዱ ፎቶ፣ እያንዳንዱ ቃል፣ እያንዳንዱ የልብ ምት ሁሉ ለአንቺ ብቻ ነው። 
-                አንቺ በደመና ቀናት የእኔ ፀሐይ፣ በወተት ባህር የእኔ መወጠሪያ፣ እና ሁልጊዜ የእኔ ነገር ሁሉ ነሽ።
+                My dearest love, this website is a small reflection of the immense love I carry for you in my heart. 
+                Every pixel, every animation, every word here is dedicated to you – the most amazing person in my universe.
             </p>
         </header>
         
         <!-- Love Meter -->
         <section class="love-meter">
-            <h2 class="meter-title">ምን ያህል እወድሻለሁ</h2>
+            <h2 class="meter-title">How Much I Love You</h2>
             <div class="meter-container">
                 <div class="meter-fill"></div>
             </div>
-            <div class="meter-text">ማያልቅ እና ወደ ላይ <span class="amharic-heart">💖</span></div>
+            <div class="meter-text">
+                <span class="heart-beat">💖</span>
+                Infinite & Beyond 
+                <span class="heart-beat" style="animation-delay: 0.6s">💖</span>
+            </div>
         </section>
         
         <!-- Photo Gallery -->
         <section class="gallery-section">
-            <h2 class="section-title">የእኛ ውብ ትዝታዎች</h2>
+            <h2 class="section-title">Our Beautiful Journey</h2>
             <div class="gallery-container" id="gallery">
                 <!-- Photos will be added by JavaScript -->
             </div>
@@ -682,30 +1013,32 @@
         
         <!-- Love Letter -->
         <section class="love-letter">
-            <h2 class="section-title">ከልቤ ወደ አንቺ የተላከ ደብዳቤ</h2>
+            <h2 class="section-title">My Heart's Letter to You</h2>
             <div class="letter-content">
-                <p>ውዴ ልጄ ሆይ፣ ከተገናኘሁሽ ጀምሮ ህይወቴ ከነበረው የበለጠ ብሩህ፣ የበለጠ ሙሉ እና የበለጠ ታምር ያለው ሆኗል። ፊትሽ የምወደው እይታ፣ ሳቂሽ የምወደው ድምጽ፣ ፍቅርሽም የኔ ታላቅ ሃብት ነው።</p>
+                <p>My darling, from the moment our paths crossed, my life transformed into a beautiful dream. Your smile became my favorite sunrise, your laughter my favorite melody, and your love my greatest treasure.</p>
                 
-                <p>ከአንቺ ጋር ያለሁባቸው ቀናት ሁሉ ልቤ ከማያልፈው ውብ ሕልም ይመስለኛል። እውነተኛ ፍቅር ምን እንደሆነ አሳየሽኛል - በትንሽ ነገሮች፣ በሰላማዊ ቅጽበቶች፣ በሚከፋፈሉን እይታዎች እና በእኛ መካከል ባለው ያልተነገረ ግንዛቤ ውስጥ ነው።</p>
+                <p>Every day with you feels like a page from a fairy tale – filled with magic, joy, and endless love. You've shown me what true partnership means, what unconditional love feels like, and what it means to have a home in someone's heart.</p>
                 
-                <p>ህይወት ወዴት ቢወስደንም፣ ልቤ ሁልጊዜ የአንቺ ብቻ ነው። በእያንዳንዱ ወቅት፣ በእያንዳንዱ ፈተና፣ በእያንዳንዱ ደስታ - ሁሉንም ከአንቺ ጋር ልሰማው እፈልጋለሁ።</p>
+                <p>No matter where life takes us, my heart will always beat for you. Through every storm and every sunshine, through every challenge and every victory – I want to experience it all with you by my side.</p>
                 
-                <p>እርስሽ ስትሆንሽ ስለተቀመጥሽ፣ ስለወደድሽኝ እና ዓለሜን ሙሉ ስለሆነችሽ አመሰግናለሁ። በእያንዳንዱ የሚያልፍ ቀን የበለጠ እከብሻለሁ፣ እና የቀረውን ህይወቴ ምን ያህል እንደምትማራችሁ ለማሳየት እቀጥላለሁ።</p>
+                <p>Thank you for being you, for loving me, and for making my world complete. I promise to cherish you, adore you, and love you more with each passing day.</p>
             </div>
         </section>
         
-        <!-- Countdown to Special Date -->
+        <!-- Countdown -->
         <section class="countdown">
-            <h2 class="countdown-title">ከሰላለሁሽ ጀምሮ ያለፉት ቀናት</h2>
+            <h2 class="countdown-title">Our Time Together</h2>
             <div class="countdown-container" id="countdown">
                 <!-- Countdown will be added by JavaScript -->
             </div>
         </section>
         
-        <!-- Interactive Flowers -->
+        <!-- Interactive Section -->
         <section class="interactive-section">
-            <h2 class="section-title">ለአንቺ የበቃጭ አበቦች 🎁</h2>
-            <p style="font-size: 1.4rem; margin-bottom: 20px; color: #8e24aa;">አበቦቹን ተንኩ ለአንቺ ብቻ የተሰራ በቃጭ ስጥ</p>
+            <h2 class="section-title">Create Your Bouquet 💐</h2>
+            <p style="font-size: 1.4rem; margin-bottom: 20px; color: var(--dark-purple);">
+                Tap/Click the flowers to create a special bouquet
+            </p>
             
             <div class="flowers-container">
                 <div class="flower" data-flower="🌹">🌹</div>
@@ -716,22 +1049,27 @@
                 <div class="flower" data-flower="🌻">🌻</div>
             </div>
             
-            <div class="flowers-message" id="flowers-message">በቃጭሽን ለመፍጠር ከላይ ያሉትን አበቦች ተንኩ 🌸</div>
+            <div class="flowers-message" id="flowers-message">Tap flowers above to create your bouquet</div>
             
-            <button class="romantic-btn" id="love-message-btn">የፍቅር መልእክት ላክልሽ</button>
-            <button class="romantic-btn" id="kiss-btn" style="margin-left: 15px;">💋 ቲፍ ላክልሽ</button>
+            <div class="btn-container">
+                <button class="romantic-btn" id="love-message-btn">
+                    <i class="fas fa-heart" style="margin-right: 10px;"></i>
+                    Send Love Message
+                </button>
+                <button class="romantic-btn" id="kiss-btn" style="background: linear-gradient(135deg, #ff9800, #ffb74d);">
+                    <i class="fas fa-kiss-wink-heart" style="margin-right: 10px;"></i>
+                    Send Virtual Kiss
+                </button>
+            </div>
         </section>
         
         <!-- Footer -->
         <footer>
-            <p>በልቤ ውስጥ ያለው ሁሉ ፍቅር ተደርጎ ተሰራል</p>
-            <p>ለዓለም ውስጥ ለምትገኝ አስደናቂ ሴት</p>
-            <div class="signature">ለዘላለም የአንቺ</div>
-            <p style="margin-top: 30px; font-size: 1.2rem; color: #ff4081;">
-                <span class="ethiopian-flag"></span>
-                አንቺ የኔ ዛሬ እና የግምት ነገሬ ሁሉ ነሽ 
-                <span class="amharic-heart">💖</span>
-                <span class="ethiopian-flag"></span>
+            <p>Made with all the love in my heart 💕</p>
+            <p>For the most wonderful woman in the world 🌍</p>
+            <span class="signature">Forever Yours</span>
+            <p style="margin-top: 30px; font-size: 1.2rem; color: var(--primary-pink);">
+                ✨ You are my today and all of my tomorrows ✨
             </p>
         </footer>
     </div>
@@ -742,61 +1080,70 @@
         <img class="modal-content" id="modalImage">
     </div>
     
-    <!-- Audio for background music (Ethiopian romantic music) -->
-    <audio id="bgMusic" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-loving-you-117.mp3" type="audio/mpeg">
+    <!-- Romantic Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-love-separation-588.mp3" type="audio/mpeg">
     </audio>
 
     <script>
         // ============================================
-        // እዚህ ፎቶዎችዎን እና ዝርዝሮችዎን ይቀይሩ!
+        // CUSTOMIZE THESE FOR YOUR LOVE!
         // ============================================
         
-        // 1. እነዚህን በፎቶ ፋይሎችዎ ስም ይቀይሩ
+        // 1. Replace with your photo filenames
         const yourPhotos = [
             {
-                url: "photo1.jpg", // ወደ ፎቶ ፋይል ስምዎ ይቀይሩ
-                caption: "የመረጥኩት ሰው በዓለም ውስጥ በጣም ዕድለኛ መሆኔን ያየሁበት ቀን"
+                url: "photo1.jpg", // Change to your photo filename
+                caption: "The moment I knew I found my forever"
             },
             {
-                url: "photo2.jpg", // ወደ ፎቶ ፋይል ስምዎ ይቀይሩ
-                caption: "ፊትሽ አለሜን ሁሉ ብሩህ ያደርገዋል"
+                url: "photo2.jpg", // Change to your photo filename
+                caption: "Your smile brightens even my darkest days"
             },
             {
-                url: "photo3.jpg", // ወደ ፎቶ ፋይል ስምዎ ይቀይሩ
-                caption: "ከአንቺ ጋር ለምለማቸው ሁሉንም ቅጽበቶች አመሰግናለሁ"
+                url: "photo3.jpg", // Change to your photo filename
+                caption: "Every memory with you is precious gold"
             },
             {
-                url: "photo4.jpg", // ወደ ፎቶ ፋይል ስምዎ ይቀይሩ
-                caption: "ልቤ የአንቺ ነው፣ አሁን እና ሁልጊዜም"
+                url: "photo4.jpg", // Change to your photo filename
+                caption: "My heart found its home in your eyes"
+            },
+            {
+                url: "photo5.jpg", // Change to your photo filename
+                caption: "Together is my favorite place to be"
+            },
+            {
+                url: "photo6.jpg", // Change to your photo filename
+                caption: "You are the best thing that ever happened to me"
             }
         ];
         
-        // 2. በተለይ የምትዘነጉበትን ቀን ይቀይሩ
-        const specialDate = new Date("2023-06-15"); // ወደ ልዩ ቀንዎ ይቀይሩ
+        // 2. Replace with your special date (when you met/anniversary)
+        const specialDate = new Date("2023-06-15"); // Format: YYYY-MM-DD
         
-        // የፍቅር መልዕክቶች
-        const loveMessagesAmharic = [
-            "አንቺ በህይወቴ ውስጥ የደረሰብኝ ታላቅ ነገር ነሽ 💖",
-            "ለአንቺ ያለኝ ፍቅር በእያንዳንዱ ቀን ይበልጣል 🌹",
-            "በዓይንሽ ውስጥ ቤቴን እና ሰላሜን አገኘሁ 🏡",
-            "አንቺ በህይወቴ ውስጥ ስትሆኪ አለሜ ታምር ያለው ይሆናል 🌸",
-            "እያንዳንዱ የፍቅር ታሪክ ታምር ያለው ነው፣ ግን የእኛ ታሪክ የኔ ተወዳጅ ነው 📖",
-            "በእያንዳንዱ የሚያልፍ ቅጽበት በጣም እወድሻለሁ 💫",
-            "አንቺ የኔ ዛሬ እና የግምት ነገሬ ሁሉ ነሽ ⭐",
-            "ልቤ በእያንዳንዱ ምት ስምሽን ይናገራል 💓"
+        // 3. Love messages
+        const loveMessages = [
+            "You are my sunshine on cloudy days ☀️",
+            "My love for you grows stronger every moment 🌱",
+            "In your arms, I've found my paradise 🏝️",
+            "You make my heart skip a beat every time 💓",
+            "Every love story is beautiful, but ours is my favorite 📖",
+            "I fall for you more with each passing day 💫",
+            "You are my today and all of my tomorrows ✨",
+            "My heart whispers your name with every beat 💖"
         ];
         
-        // የቲፍ መልዕክቶች
-        const kissMessagesAmharic = [
-            "💋 ሺ ቲፎች ላክልሽ!",
-            "💋 ምናባዊ ቲፍ ወደ ውብ ከንፈርሽ ተደረሰ!",
-            "💋 ሙሽ! ያ ከልቤ የተላከ ቲፍ ነው!",
-            "💋 ቲፎችን ወደ አንቺ እያነፋሁ ነው፣ ውዴ!",
-            "💋 ለአስደናቂዋ ሴት ርኅራኄ ያለው ቲፍ!"
+        // 4. Kiss messages
+        const kissMessages = [
+            "💋 Sending you a thousand kisses, my love!",
+            "💋 A gentle kiss for your beautiful soul!",
+            "💋 Mwah! That's a kiss straight from my heart!",
+            "💋 Blowing kisses your way, darling!",
+            "💋 Virtual kiss delivered with all my love!"
         ];
         
-        // DOM አባሎች
+        // DOM Elements
         const galleryContainer = document.getElementById('gallery');
         const flowersMessage = document.getElementById('flowers-message');
         const loveMessageBtn = document.getElementById('love-message-btn');
@@ -804,51 +1151,78 @@
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const closeModal = document.getElementById('closeModal');
-        const musicToggle = document.getElementById('musicToggle');
+        const musicPlayer = document.getElementById('musicPlayer');
         const bgMusic = document.getElementById('bgMusic');
-        const heartsBg = document.getElementById('heartsBg');
+        const floatingHearts = document.getElementById('floatingHearts');
         const countdownContainer = document.getElementById('countdown');
         
-        // ተንሳፋፊ ልቦች የኋላ ገጽ ፍጥር
-        function createHeartsBackground() {
-            for (let i = 0; i < 50; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart-bg';
-                heart.innerHTML = '💖';
-                heart.style.left = `${Math.random() * 100}%`;
-                heart.style.fontSize = `${Math.random() * 20 + 15}px`;
-                heart.style.animationDelay = `${Math.random() * 20}s`;
-                heart.style.opacity = `${Math.random() * 0.2 + 0.05}`;
-                heartsBg.appendChild(heart);
+        // Initialize floating hearts
+        function createFloatingHearts() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.innerHTML = ['❤️', '💕', '💖', '💗', '💓'][Math.floor(Math.random() * 5)];
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.fontSize = `${Math.random() * 20 + 15}px`;
+                    heart.style.animationDelay = `${Math.random() * 20}s`;
+                    heart.style.animationDuration = `${Math.random() * 15 + 15}s`;
+                    floatingHearts.appendChild(heart);
+                    
+                    // Remove old hearts after animation
+                    setTimeout(() => {
+                        if (heart.parentNode) {
+                            heart.remove();
+                        }
+                    }, 35000);
+                }, i * 500);
             }
         }
         
-        // ፎቶ ጋሌሪዎችዎን ይጀምሩ
+        // Initialize photo gallery
         function initializeGallery() {
             yourPhotos.forEach((photo, index) => {
                 const photoCard = document.createElement('div');
-                photoCard.className = 'photo-card touch-optimized';
+                photoCard.className = 'photo-card';
+                photoCard.tabIndex = 0; // For keyboard accessibility
                 
                 photoCard.innerHTML = `
-                    <img src="${photo.url}" alt="የእኛ ውብ ትዝታ ${index + 1}" class="photo-img">
-                    <div class="photo-overlay">
-                        <div style="text-align: center; font-size: 1.1rem;">${photo.caption}</div>
+                    <div class="photo-img-container">
+                        <img src="${photo.url}" 
+                             alt="Our beautiful memory ${index + 1}" 
+                             class="photo-img"
+                             loading="lazy">
+                        <div class="photo-overlay">
+                            <div style="text-align: center; font-size: 1.2rem; line-height: 1.5;">
+                                ${photo.caption}
+                            </div>
+                        </div>
                     </div>
                     <div class="photo-caption">${photo.caption}</div>
                 `;
                 
-                // ፎቶውን ሙሉ ለሙሉ ለማየት ይተኩ/ይንኩ
+                // Click/tap to view full image
                 photoCard.addEventListener('click', () => {
                     modalImage.src = photo.url;
+                    modalImage.alt = photo.caption;
                     modal.style.display = 'flex';
                     document.body.style.overflow = 'hidden';
+                });
+                
+                // Keyboard support
+                photoCard.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        modalImage.src = photo.url;
+                        modal.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                    }
                 });
                 
                 galleryContainer.appendChild(photoCard);
             });
         }
         
-        // ቆጠራ ሰዓት ይጀምሩ
+        // Initialize countdown
         function initializeCountdown() {
             const now = new Date();
             const diffTime = Math.abs(now - specialDate);
@@ -860,194 +1234,265 @@
             const days = diffDays % 7;
             
             countdownContainer.innerHTML = `
-                <div class="countdown-item">
+                <div class="countdown-item" tabindex="0">
                     <div class="countdown-number">${years}</div>
-                    <div class="countdown-label">ዓመታት</div>
+                    <div class="countdown-label">Years</div>
                 </div>
-                <div class="countdown-item">
+                <div class="countdown-item" tabindex="0">
                     <div class="countdown-number">${months}</div>
-                    <div class="countdown-label">ወራት</div>
+                    <div class="countdown-label">Months</div>
                 </div>
-                <div class="countdown-item">
+                <div class="countdown-item" tabindex="0">
                     <div class="countdown-number">${weeks}</div>
-                    <div class="countdown-label">ሳምንታት</div>
+                    <div class="countdown-label">Weeks</div>
                 </div>
-                <div class="countdown-item">
+                <div class="countdown-item" tabindex="0">
                     <div class="countdown-number">${days}</div>
-                    <div class="countdown-label">ቀናት</div>
+                    <div class="countdown-label">Days</div>
                 </div>
             `;
         }
         
-        // አበቦች መስራት
+        // Interactive flowers functionality
         let flowerBouquet = [];
         const flowers = document.querySelectorAll('.flower');
         
         flowers.forEach(flower => {
-            flower.addEventListener('click', () => {
-                const flowerType = flower.getAttribute('data-flower');
-                flowerBouquet.push(flowerType);
-                
-                // በቃጭ ማሳየት ያዘምኑ
-                if (flowerBouquet.length <= 10) {
-                    flowersMessage.innerHTML = `በቃጭሽ: ${flowerBouquet.join(' ')}`;
-                } else {
-                    flowersMessage.innerHTML = "🌸 በቃጭሽ በፍቅር ተሞልቷል! 🌸";
-                    setTimeout(() => {
-                        flowerBouquet = [];
-                        flowersMessage.innerHTML = "አዲስ በቃጭ ለመፍጠር አበቦቹን ተንኩ 💐";
-                    }, 2000);
+            flower.setAttribute('tabindex', '0');
+            flower.setAttribute('role', 'button');
+            flower.setAttribute('aria-label', `Add ${flower.getAttribute('data-flower')} to bouquet`);
+            
+            flower.addEventListener('click', handleFlowerClick);
+            flower.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    handleFlowerClick.call(flower);
                 }
-                
-                // እንቅስቃሴ ግብረመልስ
-                flower.style.transform = 'scale(1.3) rotate(15deg)';
-                setTimeout(() => {
-                    flower.style.transform = '';
-                }, 300);
             });
         });
         
-        // የፍቅር መልእክት ቁልፍ
+        function handleFlowerClick() {
+            const flowerType = this.getAttribute('data-flower');
+            flowerBouquet.push(flowerType);
+            
+            // Update bouquet display
+            if (flowerBouquet.length <= 12) {
+                flowersMessage.innerHTML = `Your bouquet: ${flowerBouquet.join(' ')}`;
+            } else {
+                flowersMessage.innerHTML = "💖 Your bouquet overflows with love! 💖";
+                setTimeout(() => {
+                    flowerBouquet = [];
+                    flowersMessage.innerHTML = "Tap flowers to create a new bouquet 💐";
+                }, 2500);
+            }
+            
+            // Animation feedback
+            this.style.transform = 'scale(1.4) rotate(15deg)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 400);
+        }
+        
+        // Love message button
         loveMessageBtn.addEventListener('click', () => {
-            const randomIndex = Math.floor(Math.random() * loveMessagesAmharic.length);
-            const randomMessage = loveMessagesAmharic[randomIndex];
+            const randomIndex = Math.floor(Math.random() * loveMessages.length);
+            const randomMessage = loveMessages[randomIndex];
             
             flowersMessage.innerHTML = `💌 ${randomMessage}`;
+            flowersMessage.style.backgroundColor = 'rgba(255, 235, 245, 0.9)';
             
-            // ቁልፍ ግብረመልስ
-            loveMessageBtn.innerHTML = "መልእክት ተልኳል! 💖";
-            loveMessageBtn.style.background = "linear-gradient(45deg, #4CAF50, #8BC34A)";
+            // Button feedback
+            loveMessageBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> Message Sent!';
+            loveMessageBtn.style.background = 'linear-gradient(135deg, #4CAF50, #8BC34A)';
             
             setTimeout(() => {
-                loveMessageBtn.innerHTML = "የፍቅር መልእክት ላክልሽ";
-                loveMessageBtn.style.background = "linear-gradient(45deg, #ff4081, #ff79b0)";
-            }, 2000);
+                loveMessageBtn.innerHTML = '<i class="fas fa-heart" style="margin-right: 10px;"></i> Send Love Message';
+                loveMessageBtn.style.background = 'linear-gradient(135deg, var(--primary-pink), var(--secondary-pink))';
+            }, 2500);
+            
+            createFloatingHeartsEffect();
         });
         
-        // ቲፍ ቁልፍ
+        // Kiss button
         kissBtn.addEventListener('click', () => {
-            const randomIndex = Math.floor(Math.random() * kissMessagesAmharic.length);
-            const randomMessage = kissMessagesAmharic[randomIndex];
+            const randomIndex = Math.floor(Math.random() * kissMessages.length);
+            const randomMessage = kissMessages[randomIndex];
             
             flowersMessage.innerHTML = randomMessage;
+            flowersMessage.style.backgroundColor = 'rgba(255, 243, 224, 0.9)';
             
-            // ቁልፍ ግብረመልስ
-            kissBtn.innerHTML = "ቲፍ ተልኳል! 💋";
-            kissBtn.style.background = "linear-gradient(45deg, #FF9800, #FFB74D)";
+            // Button feedback
+            kissBtn.innerHTML = '<i class="fas fa-check" style="margin-right: 10px;"></i> Kiss Sent!';
+            kissBtn.style.background = 'linear-gradient(135deg, #FF5722, #FF8A65)';
             
             setTimeout(() => {
-                kissBtn.innerHTML = "💋 ቲፍ ላክልሽ";
-                kissBtn.style.background = "linear-gradient(45deg, #ff4081, #ff79b0)";
-            }, 2000);
+                kissBtn.innerHTML = '<i class="fas fa-kiss-wink-heart" style="margin-right: 10px;"></i> Send Virtual Kiss';
+                kissBtn.style.background = 'linear-gradient(135deg, #ff9800, #ffb74d)';
+            }, 2500);
             
-            // ተንሳፋፊ ቲፍ እንቅስቃሴዎች ጨምር
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => {
-                    createFloatingKiss();
-                }, i * 200);
+            // Create floating kiss animations
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => createFloatingKiss(), i * 150);
             }
         });
         
-        // ተንሳፋፊ ቲፍ እንቅስቃሴ ፍጥር
+        // Create floating kiss animation
         function createFloatingKiss() {
             const kiss = document.createElement('div');
             kiss.innerHTML = '💋';
             kiss.style.position = 'fixed';
-            kiss.style.fontSize = '2rem';
+            kiss.style.fontSize = `${Math.random() * 30 + 20}px`;
             kiss.style.left = `${Math.random() * 80 + 10}%`;
             kiss.style.top = '100vh';
             kiss.style.zIndex = '9999';
             kiss.style.pointerEvents = 'none';
+            kiss.style.opacity = '0.9';
             document.body.appendChild(kiss);
             
             const animation = kiss.animate([
                 { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
                 { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
             ], {
-                duration: 2000,
+                duration: Math.random() * 2000 + 3000,
                 easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
             });
             
             animation.onfinish = () => kiss.remove();
         }
         
-        // ሙዚቃ መቀያየር አሰራር
-        let isPlaying = false;
+        // Create floating hearts effect
+        function createFloatingHeartsEffect() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.fontSize = `${Math.random() * 25 + 15}px`;
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.top = '100vh';
+                    heart.style.opacity = Math.random() * 0.7 + 0.3;
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '9998';
+                    document.body.appendChild(heart);
+                    
+                    const animation = heart.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: heart.style.opacity },
+                        { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: Math.random() * 4000 + 6000,
+                        easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                    });
+                    
+                    animation.onfinish = () => heart.remove();
+                }, i * 200);
+            }
+        }
         
-        musicToggle.addEventListener('click', () => {
+        // Music functionality
+        let isPlaying = false;
+        let musicAutoPlayTimeout;
+        
+        function initializeMusic() {
+            // Auto-play music after 4 seconds
+            musicAutoPlayTimeout = setTimeout(() => {
+                playMusic();
+            }, 4000);
+            
+            // Music player click handler
+            musicPlayer.addEventListener('click', toggleMusic);
+            
+            // Play music on first user interaction (for mobile browsers)
+            document.addEventListener('click', handleFirstInteraction, { once: true });
+            document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+            document.addEventListener('keydown', handleFirstInteraction, { once: true });
+        }
+        
+        function handleFirstInteraction() {
+            clearTimeout(musicAutoPlayTimeout);
+            setTimeout(playMusic, 1000);
+        }
+        
+        function playMusic() {
+            if (!isPlaying) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    musicPlayer.classList.add('playing');
+                    musicPlayer.style.background = 'rgba(255, 235, 245, 0.95)';
+                }).catch(error => {
+                    console.log('Auto-play prevented:', error);
+                    musicPlayer.innerHTML = '<div class="music-icon">🔇</div><div class="music-text">Tap to enable music</div>';
+                    musicPlayer.title = 'Tap to enable music (browser requires interaction)';
+                });
+            }
+        }
+        
+        function toggleMusic() {
             if (isPlaying) {
                 bgMusic.pause();
-                musicToggle.classList.remove('playing');
+                musicPlayer.classList.remove('playing');
+                musicPlayer.innerHTML = '<div class="music-icon">🔇</div><div class="music-text">Music Paused</div>';
             } else {
-                bgMusic.play().catch(e => {
-                    console.log("ራስ-ጫወት ተከልክሏል. የተጠቃሚ መስተጋብር ያስፈልጋል.");
-                    musicToggle.innerHTML = "🔇";
-                    musicToggle.title = "ሙዚቃ ለማንቃት ይንኩ (አሳሽ መስተጋብር ሊፈልግ ይችላል)";
-                });
-                musicToggle.classList.add('playing');
+                bgMusic.play();
+                musicPlayer.classList.add('playing');
+                musicPlayer.innerHTML = '<div class="music-icon">🎵</div><div class="music-text">Romantic Music Playing</div>';
             }
             isPlaying = !isPlaying;
-        });
+        }
         
-        // ሞዳል አሰራር
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
+        // Modal functionality
+        closeModal.addEventListener('click', closeImageModal);
         
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                closeImageModal();
             }
         });
         
-        // ገጹ ሲጫን ሁሉንም ነገር ይጀምሩ
-        document.addEventListener('DOMContentLoaded', () => {
-            createHeartsBackground();
-            initializeGallery();
-            initializeCountdown();
-            
-            // በተጠቃሚ መስተጋብር ሙዚቃን በራስ-ጫወት ይጀምሩ (ለሞባይል)
-            document.body.addEventListener('click', () => {
-                if (!isPlaying) {
-                    bgMusic.play().then(() => {
-                        isPlaying = true;
-                        musicToggle.classList.add('playing');
-                    }).catch(() => {
-                        // ሙዚቃ ራስ-ጫወት ተከልክሏል - እሺ ነው
-                    });
-                }
-            }, { once: true });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                closeImageModal();
+            }
         });
         
-        // በየጊዜው አንዳንድ ሮማንቲክ ተንሳፋፊ ልቦች ጨምር
-        setInterval(() => {
-            createFloatingHeart();
-        }, 3000);
-        
-        function createFloatingHeart() {
-            const heart = document.createElement('div');
-            heart.innerHTML = '❤️';
-            heart.style.position = 'fixed';
-            heart.style.fontSize = `${Math.random() * 25 + 15}px`;
-            heart.style.left = `${Math.random() * 100}%`;
-            heart.style.top = '100vh';
-            heart.style.opacity = Math.random() * 0.5 + 0.3;
-            heart.style.pointerEvents = 'none';
-            heart.style.zIndex = '9998';
-            document.body.appendChild(heart);
-            
-            const animation = heart.animate([
-                { transform: 'translateY(0) rotate(0deg)', opacity: heart.style.opacity },
-                { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-            ], {
-                duration: Math.random() * 4000 + 6000,
-                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
-            });
-            
-            animation.onfinish = () => heart.remove();
+        function closeImageModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingHearts();
+            initializeGallery();
+            initializeCountdown();
+            initializeMusic();
+            
+            // Create periodic floating hearts
+            setInterval(() => {
+                createFloatingHeartsEffect();
+            }, 10000);
+        });
+        
+        // Handle page visibility change
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && isPlaying) {
+                bgMusic.pause();
+            } else if (!document.hidden && isPlaying) {
+                bgMusic.play();
+            }
+        });
+        
+        // Handle window resize for responsive adjustments
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Adjust font sizes for very small screens
+                if (window.innerWidth < 400) {
+                    document.querySelectorAll('.section-title').forEach(title => {
+                        title.style.fontSize = '2.2rem';
+                    });
+                }
+            }, 250);
+        });
     </script>
 </body>
 </html>
