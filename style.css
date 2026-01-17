@@ -1,0 +1,140 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4);
+  color: #fff;
+}
+
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: floatUp 4s linear forwards;
+  z-index: 1;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+.heart::before { top: -10px; left: 0; }
+.heart::after { top: 0; left: -10px; }
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(45deg); opacity:1; }
+  100% { transform: translateY(-200px) rotate(45deg); opacity:0; }
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+}
+.hero-photo {
+  width: 250px;
+  max-width: 80%;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255,255,255,0.5);
+  margin: 20px 0;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+.love-text {
+  font-size: 2.5rem;
+  animation: fadeIn 2s ease forwards;
+}
+.sub-text {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  animation: fadeIn 3s ease forwards;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Slider / Gallery */
+.gallery {
+  padding: 50px 20px;
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+}
+.gallery h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.slider {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.slide {
+  width: 100%;
+  display: none;
+}
+.slide.active {
+  display: block;
+  animation: fadeSlide 1s ease-in-out;
+}
+@keyframes fadeSlide {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+/* Quotes Section */
+.quotes {
+  padding: 50px 20px;
+  text-align: center;
+}
+.quotes h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+#quote {
+  font-size: 1.5rem;
+  animation: fadeText 1s ease-in-out;
+}
+@keyframes fadeText {
+  0% { opacity: 0; transform: translateY(10px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 1rem;
+  background: rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-photo { width: 180px; }
+  .love-text { font-size: 2rem; }
+  .sub-text { font-size: 1rem; }
+  .gallery h2, .quotes h2 { font-size: 1.5rem; }
+  #quote { font-size: 1.2rem; }
+}
